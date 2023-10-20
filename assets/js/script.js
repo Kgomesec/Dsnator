@@ -15,16 +15,28 @@ function responder(num){
 	trocarNumQuest()
 }
 
-//  Pica-pau
-//  Bob Esponja
-//  Robin
-//  Cyborg
-//  mickey
-//  Homer Simpson
-//  Popeye
-//  Lula Molusco
-//  Mordecai
-//  bumblebee
-// 	pluto
-// 	
+//  ANIMAL {
+	// TERRESTRE {
+		// 	pluto
+		//  mickey
+		
+		//  Pica-pau
+		//  Mordecai
+	//  }
+	//AQUATICO {
+		//  Lula Molusco
+		//  Bob Esponja
+	//  }
 
+//  HUMANO {	
+	//  Robin
+	//  Homer Simpson
+	//  Popeye
+//  }
+
+//  ROBO {
+	//  Cyborg
+	//  bumblebee
+	// 	BMO
+
+//  }
