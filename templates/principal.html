@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSNator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inicio.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/principal.css') }}">
+</head>
+<body>
+    <header class="topo">
+        <p id='titulo'>DSNator</p>
+    </header>
+
+
+    <section class="container">
+        <div id="lugarDaImg">
+            <img src="{{ url_for('static', filename='img/OIG.png') }}" alt="" srcset="" class="imgNossoPersonagem" style="height: 350px; width: 350px;">
+        </div>
+       
+        <div class="joao">
+            <div class="msg">
+                <div class="numQuest" id="numQuest">
+                 
+                </div>
+
+                <div class="pergunta" id="lugPergunta">{{ pergunta }}</div>
+            </div>
+        
+            <div class="resposta">  
+                <button type="submit" class="btnResposta" name="btn" onclick="responder(1)" id="1" value="sim">Sim</button>
+                <button type="submit" class="btnResposta" name="btn" onclick="responder(2)" id="2" value="nao">Não</button>
+                <button type="submit" class="btnResposta" name="btn" onclick="responder(3)" id="3" value="naoSei">Não Sei</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</html>

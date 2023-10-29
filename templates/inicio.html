@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSNator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inicio.css') }}">
+    <script src="assets/js/script.js"> </script>
+</head>
+
+<body>
+
+    <header class="topo">
+        <p id='titulo'>DSNator</p>
+    </header>
+
+    <main id="main">
+        <img src="{{ url_for('static', filename='img/balaoE.png') }}" alt="" class="balaoimg" id="balaoE">
+
+
+        <section class="content">
+            <button class="btn_jogar" onclick="jogar()" href="principal.html">
+                <!-- <a href="principal.html">PLAY</a> -->
+                PLAY
+            </button>
+        </section>
+
+
+        <img src="{{ url_for('static', filename='img/balaoD.png') }}" alt="" class="balaoimg" id="balaoD">
+
+    </main>
+</body>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</html>

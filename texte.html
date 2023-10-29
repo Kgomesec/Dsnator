@@ -1,0 +1,334 @@
+<div class="resposta">             
+    <button class="btnResposta" onclick="responder(1)" id="1" value="sim">Sim</button>
+    <button class="btnResposta" onclick="responder(2)" id="2" value="nao">Não</button>
+    <button class="btnResposta" onclick="responder(3)" id="3" value="naoSei">Não Sei</button>
+</div>
+
+
+
+//primeira forma de puxar botao
+<form action="/processar" class="resposta" method="post">
+    <button type="submit" class="btnResposta" name="btn" onclick="responder(1)" id="1" value="sim">Sim</button>
+    <button type="submit" class="btnResposta" name="btn" onclick="responder(2)" id="2" value="nao">Não</button>
+    <button type="submit" class="btnResposta" name="btn" onclick="responder(3)" id="3" value="naoSei">Não Sei</button>
+</form>
+
+//python
+@app.route('/processar', methods=['POST'])
+def processar():
+    valor_do_botao = request.form['btn']
+    return f'O botão pressionado foi: {valor_do_botao}' 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    const perguntas= [
+	{id:1, conteudo:'O seu Personagem é homem ou mulher?',},
+	{id:2, conteudo:'O seu personagem fez parte do Cartoon Network?',},
+	{id:3, conteudo:'O seu personagem tem barba?',}
+] 
+
+
+var  quantQuest = 1
+function trocarNumQuest(){
+
+	var lugQuest = document.getElementById('numQuest')
+	lugQuest.innerHTML=quantQuest
+}
+trocarNumQuest()
+function responder(num){
+	var btn = document.getElementById(num).value
+	console.log(btn)
+	quantQuest+=1
+	trocarNumQuest()
+	trocarPergunta()
+	if(contador == 2 ){
+		contador=0
+		loop++
+		if(loop == 4){
+			MostrarResposta()
+		}
+		return	
+	}
+	contador++
+	console.log(contador)
+}
+
+function MostrarResposta(){
+	const lugImgResposta = document.getElementById("lugarDaImg")
+	lugImgResposta.innerHTML=''
+	var msgResposta = document.createElement('p')
+	msgResposta.setAttribute('id','nomeRespostaPersonagem')
+	lugImgResposta.appendChild(msgResposta)
+	
+	document.getElementById('nomeRespostaPersonagem').innerHTML=`<h3 style='color:white;'>O seu personagem é ... </h3><span style='color:yellow;'>Bob Esponja</span><br><br>`
+	lugImgResposta.innerHTML+= `<img src="assets/img/teeste.jpg" alt="" srcset="" class="imgNossoPersonagem">`
+
+}
+
+var contador = 1 
+var loop = 0
+function trocarPergunta(){
+	var lugPergunta = document.getElementById('lugPergunta')
+	lugPergunta.innerHTML=perguntas[(contador)].conteudo
+}
+
+function perguntaINICIAL(){
+	var lugPergunta = document.getElementById('lugPergunta')
+	lugPergunta.innerHTML=perguntas[0].conteudo
+	
+}
+perguntaINICIAL()
+
+
+
+
+
+
+
+
+
+lugPergunta.innerHTML=data.perguntas[i]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                var perguntas = data.perguntas;
+                console.log(perguntas);
+                // Aqui você pode fazer o que quiser com a variável 'perguntas'
+				var lugPergunta = document.getElementById('lugPergunta')
+				lugPergunta.innerHTML=data.perguntas[i]
+            }
+        }
+    };
+    xhr.open('GET', '/get_perguntas', true);
+    xhr.send();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                var perguntas = data.perguntas;
+                var indicePerguntaAtual = 0;
+
+                function exibirProximaPergunta() {
+                    // Adicionando a pergunta na div com classe 'lugPergunta'
+                    var divPergunta = document.getElementById('lugPergunta');
+                    divPergunta.innerHTML = perguntas[indicePerguntaAtual].pergunta;
+                }
+
+                exibirProximaPergunta();
+
+                // Adicionando evento de clique aos botões
+                var botoesResposta = document.querySelectorAll('.btnResposta');
+                botoesResposta.forEach(function(botao) {
+                    botao.addEventListener('click', function() {
+                        // Atualiza o índice da pergunta
+                        indicePerguntaAtual++;
+
+                        // Verifica se há mais perguntas
+                        if (indicePerguntaAtual < perguntas.length) {
+                            exibirProximaPergunta();
+                        } else {
+                            divPergunta.innerHTML = "Fim das perguntas";
+                        }
+                    });
+                });
+            }
+        }
+    };
+    xhr.open('GET', '/get_perguntas', true);
+    xhr.send();
+});
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                var perguntas = data.perguntas;
+                var indicePerguntaAtual = 0;
+
+                function exibirProximaPergunta() {
+                    // Adicionando o número da pergunta na div com classe 'numQuest'
+                    var divNumero = document.querySelector('.numQuest');
+                    divNumero.innerHTML = perguntas[indicePerguntaAtual].numero;
+
+                    // Adicionando a pergunta na div com classe 'lugPergunta'
+                    var divPergunta = document.getElementById('lugPergunta');
+                    divPergunta.innerHTML = perguntas[indicePerguntaAtual].pergunta;
+                }
+
+                exibirProximaPergunta();
+
+                // Adicionando evento de clique aos botões
+                var botoesResposta = document.querySelectorAll('.btnResposta');
+                botoesResposta.forEach(function(botao) {
+                    botao.addEventListener('click', function() {
+                        // Atualiza o índice da pergunta
+                        indicePerguntaAtual++;
+
+                        // Verifica se há mais perguntas
+                        if (indicePerguntaAtual < perguntas.length) {
+                            exibirProximaPergunta();
+                        } else {
+                            var divNumero = document.querySelector('.numQuest');
+                            divNumero.innerHTML = "";
+                            var divPergunta = document.querySelector('.lugPergunta');
+                            divPergunta.innerHTML = "Fim das perguntas";
+                        }
+                    });
+                });
+            }
+        }
+    };
+    xhr.open('GET', '/get_perguntas', true);
+    xhr.send();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                var perguntas = data.perguntas;
+                var indicePerguntaAtual = 0;
+
+                function exibirProximaPergunta() {
+                    // Adicionando o número da pergunta na div com classe 'numQuest'
+                    var divNumero = document.querySelector('.numQuest');
+                    divNumero.innerHTML = perguntas[indicePerguntaAtual].numero;
+
+                    // Adicionando a pergunta na div com classe 'lugPergunta'
+                    var divPergunta = document.getElementById('lugPergunta');
+                    divPergunta.innerHTML = perguntas[indicePerguntaAtual].pergunta;
+                }
+
+                function finalizarPerguntas() {
+                    var divNumero = document.querySelector('.numQuest');
+                    divNumero.innerHTML = "";
+                    var divPergunta = document.querySelector('.lugPergunta');
+                    divPergunta.innerHTML = "Fim das perguntas";
+                }
+
+                exibirProximaPergunta();
+
+                // Adicionando evento de clique aos botões
+                var botoesResposta = document.querySelectorAll('.btnResposta');
+                botoesResposta.forEach(function(botao) {
+                    botao.addEventListener('click', function() {
+                        // Atualiza o índice da pergunta
+                        indicePerguntaAtual++;
+
+                        // Verifica se há mais perguntas
+                        if (indicePerguntaAtual < perguntas.length) {
+                            exibirProximaPergunta();
+                        } else {
+                            finalizarPerguntas();
+                        }
+                    });
+                });
+            }
+        }
+    };
+    xhr.open('GET', '/get_perguntas', true);
+    xhr.send();
+});

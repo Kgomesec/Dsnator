@@ -24,13 +24,20 @@
     align-items: center;
     filter: brightness(1.3);
 }
+
+main{
+    display: flex;
+    gap: 150px;
+    align-items: center;
+    justify-content: center;
+}
 #titulo{
     background: linear-gradient(270deg, #5B819F 0%, rgba(150, 133, 141, 1.00) 45.83%, rgba(199, 137, 126, 1.00) 68.18%, #E98F7A 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 1px;
     font-weight: 800;
-    font-size: 30pt;
+    font-size: 40pt;
     font-family: 'kanit';
     /* text-shadow: 2px 2px 10px #000; */
 }
@@ -75,17 +82,37 @@ body{
     text-decoration: none;
 }
 
-.balao2 {
+.baloon{
+    display: flex;
+    height: 200px;
+    width: 200px;
+    justify-content: center;
+}
+
+.balaoimg{
+    height: 300px;
+    width: 300px;
+    margin-top: -200px;
+}
+
+#balaoE{
+    transform: rotate(-26deg);
+}
+
+#balaoD{
+    transform: rotate(26deg);
+}
+/* .balao2 {
     width: 400px;
     height: 364.934px;
     transform: rotate(24deg);
     flex-shrink: 0;
     position: absolute;
-    left: 69.5vw;
+    left: 69.5vw; 
     top: 8vw;
-}
+} */
 
-.fala2 {
+/* .fala2 {
     font-family: 'Roboto', sans-serif;
     font-size: 48px;
     text-align: center;
@@ -122,7 +149,7 @@ div.baloon {
     position: absolute;
     top: 5.5vw;
     align-self: center;
-}
+} */
 
 /* .pyscript{
     display: none;

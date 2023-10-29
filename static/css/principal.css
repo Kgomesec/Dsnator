@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.topo{
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    justify-content: center;   
+    background: rgba(217, 217, 217, 0.10);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(0px);
+    z-index: 2;
+    align-items: center;
+    filter: brightness(1.3);
+}
+#titulo{
+    background: linear-gradient(270deg, #5B819F 0%, rgba(150, 133, 141, 1.00) 45.83%, rgba(199, 137, 126, 1.00) 68.18%, #E98F7A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-size: 40pt;
+    font-family: 'kanit';
+    /* text-shadow: 2px 2px 10px #000; */
+}
+
+body{
+    background: linear-gradient(270deg, #41172A 0%, rgba(70, 26, 44, 0.97) 24.59%, rgba(34, 33, 60, 1.00) 70.42%, #21213C 100%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+.container {
+    height: 50vh;
+    width: 60vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 30px;
+    gap: 30px;
+    /* background: linear-gradient(90deg ,#43182b,  #21213b); */
+
+}
+.joao {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    overflow: hidden;
+}
+
+.pergunta {
+    background-color: #43182b;
+    padding: 15px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.msg {
+    display: flex;
+    height: 50px;
+    width: 70%;
+    overflow: hidden;
+    border-radius: 10px;
+
+}
+
+.numQuest {
+    display: flex;
+    background-color: #21213b;
+    width: 10px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10px;
+}
+
+.resposta {
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    background-color: rgba(255, 255, 255, 0.678);
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    width: 60%;
+}
+
+.btnResposta {
+    padding: 17px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.199);
+}
+
+.btnResposta:hover {
+    background-color: white;
+}
+
+#lugarDaImg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imgNossoPersonagem {
+    height: 250px;
+    filter: drop-shadow(0px 0px 20px rgba(0,0,0,0.7));
+    width: 250px;
+    /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774); */
+}
+@media (max-width: 860px) {
+    .container {
+      flex-wrap: wrap;
+      width: 100vw;
+    }
+    .joao{
+        margin-top: 40px;
+        width: 600px;
+        margin-bottom: 100px;
+    }
+    .resposta{
+        margin-bottom: 50px;
+    }
+}
